@@ -1,0 +1,22 @@
+{
+  "name": "todo-app-mern-stack",
+  "version": "1.0.0",
+  "description": "a todo app with mern stack for learning purpose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azisuazusa/todo-app-mern-stack.git"
+  },
+  "author": "azisuazusa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azisuazusa/todo-app-mern-stack/issues"
+  },
+  "homepage": "https://github.com/azisuazusa/todo-app-mern-stack#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
