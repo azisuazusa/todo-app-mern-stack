@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import todo from 'model'
+import todo from './model'
 
 export const getTodos = (request, response) => {
   todo.find().exec((error, todos) => {

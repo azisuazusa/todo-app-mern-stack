@@ -2,11 +2,9 @@ import express from 'express'
 import path from 'path'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
-import route from 'route'
-import bb from 'express-busboy';
+import route from './route'
 
 const app = express()
-bb.extend(app)
 
 app.use((request, response, next) => {
   response.header('Access-Control-Allow-Origin', '*')
@@ -21,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 const port = process.env.PORT || 3001
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/todo-app-mern-stack', {
-  useMongoClient: true
+  useNewUrlParser: true
 })
 
 app.use('/api', route)
@@ -35,5 +33,5 @@ app.use((request, response, next) => {
 })
 
 app.listen(port, () => {
-  console.log('App Server Listening at ${port}')
+  console.log(`App Server Listening at ${port}`)
 })
