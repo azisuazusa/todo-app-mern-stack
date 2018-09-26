@@ -6,10 +6,10 @@ const route = express.Router()
 route.route('/')
   .get(controller.getTodos)
   .post(controller.addTodo)
-  .put(controller.updateTodo)
 
 route.route('/:id')
   .get(controller.getTodo)
+  .put(controller.updateTodo)
   .delete(controller.deleteTodo)
 
 export default route
