@@ -37,7 +37,7 @@ export const addTodo = (request, response) => {
 }
 
 export const updateTodo = (request, response) => {
-  todo.findOneAndUpdate({ _id: request.body.id }, request.body, { new: true }, (error, todo) => {
+  todo.findOneAndUpdate({ _id: request.params.id }, request.body, { new: true }, (error, todo) => {
     if (error) {
       return response.json({
         'success': false,
@@ -54,7 +54,7 @@ export const updateTodo = (request, response) => {
 }
 
 export const getTodo = (request, response) => {
-  todo.find({ _id: request.body.id }).exec((error, todo) => {
+  todo.find({ _id: request.params.id }).exec((error, todo) => {
     if (error) {
       return response.json({
         'success': false,
@@ -62,6 +62,7 @@ export const getTodo = (request, response) => {
         error
       })
     }
+    console.log('_id', request.params.id);
     return response.json({
       'success': true,
       'message': 'Berhasil mengambil todo!',
@@ -71,7 +72,7 @@ export const getTodo = (request, response) => {
 }
 
 export const deleteTodo = (request, response) => {
-  todo.findByIdAndRemove({ _id: request.body.id }).exec((error, todo) => {
+  todo.findByIdAndRemove({ _id: request.params.id }).exec((error, todo) => {
     if (error) {
       return response.json({
         'success': false,
