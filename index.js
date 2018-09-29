@@ -1,11 +1,18 @@
+// import library
 import express from 'express'
 import path from 'path'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+
+// import route
 import route from './route'
 
 const app = express()
 
+/*
+ * Izinkan CORS
+ * https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+ */
 app.use((request, response, next) => {
   response.header('Access-Control-Allow-Origin', '*')
   response.header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept')
@@ -16,7 +23,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
-const port = process.env.PORT || 3001
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/todo-app-mern-stack', {
   useNewUrlParser: true
@@ -32,6 +38,7 @@ app.use((request, response, next) => {
   response.status(404).send('<h2 align=center>Page not found!</h2>')
 })
 
+const port = 3001
 app.listen(port, () => {
   console.log(`App Server Listening at ${port}`)
 })
