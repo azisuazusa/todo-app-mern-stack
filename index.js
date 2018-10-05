@@ -24,9 +24,6 @@ app.use((request, response, next) => {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// set static path untuk static file seperti image, CSS file, JS file
-app.use(express.static(path.join(__dirname, 'public')))
-
 // connect ke database
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/todo-app-mern-stack', {
