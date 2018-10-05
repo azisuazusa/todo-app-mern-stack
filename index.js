@@ -46,7 +46,7 @@ app.use((request, response, next) => {
 })
 
 // start server
-const port = 3001
+const port = 3000
 app.listen(port, () => {
   console.log(`App Server Listening at ${port}`)
 })
